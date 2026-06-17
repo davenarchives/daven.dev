@@ -94,12 +94,12 @@ export function Intro() {
             UI/UX & Front-end Developer
           </h2>
           <p className="text-base lg:text-[18px] text-gray-700 dark:text-gray-300 max-w-[500px]">
-            Just a front-end developer who designs minimalist interfaces and{" "}
+            Just a front-end developer who designs minimalist interfaces and loves{" "}
             <span 
-              className="group relative inline-block cursor-crosshair font-bold transition-colors text-pink-400 dark:text-pink-400"
+              className="group relative inline-block cursor-crosshair font-bold transition-colors text-violet-500 dark:text-[#c4b5fd]"
               onMouseMove={handleMouseMove}
             >
-              loves vibing with code
+              vibing with code
               <motion.img
                 src="/assets/cattyping.gif"
                 alt="typing cat"
@@ -136,11 +136,11 @@ export function Intro() {
         <div className="flex flex-col sm:flex-row gap-[24px] font-bold">
           <button 
              onClick={scrollToExperience}
-             className="w-full sm:w-[144px] h-[50px] bg-yellow-400 text-black border-2 border-black shadow-[4px_4px_0_0_rgba(0,0,0,1)] hover:translate-y-[2px] hover:translate-x-[2px] hover:shadow-[2px_2px_0_0_rgba(0,0,0,1)] transition-all flex items-center justify-center text-[16px]"
+             className="w-full sm:w-[144px] h-[50px] bg-yellow-400 text-black border-2 border-black dark:border-[#d4d4d4] shadow-[4px_4px_0_0_rgba(0,0,0,1)] dark:shadow-[4px_4px_0_0_#d4d4d4] hover:translate-y-[2px] hover:translate-x-[2px] hover:shadow-[2px_2px_0_0_rgba(0,0,0,1)] dark:hover:shadow-[2px_2px_0_0_#d4d4d4] transition-all flex items-center justify-center text-[16px]"
           >
             Experience
           </button>
-          <button className="w-full sm:w-[144px] h-[50px] border-2 border-black bg-gray-200 text-black shadow-[4px_4px_0_0_rgba(0,0,0,1)] transition-all flex items-center justify-center text-[16px] hover:translate-y-[2px] hover:translate-x-[2px] hover:shadow-[2px_2px_0_0_rgba(0,0,0,1)] dark:bg-slate-700 dark:text-white">
+          <button className="w-full sm:w-[144px] h-[50px] border-2 border-black dark:border-[#d4d4d4] bg-gray-200 text-black shadow-[4px_4px_0_0_rgba(0,0,0,1)] dark:shadow-[4px_4px_0_0_#d4d4d4] transition-all flex items-center justify-center text-[16px] hover:translate-y-[2px] hover:translate-x-[2px] hover:shadow-[2px_2px_0_0_rgba(0,0,0,1)] dark:hover:shadow-[2px_2px_0_0_#d4d4d4] dark:bg-[#333333] dark:text-white">
             Projects
           </button>
         </div>
