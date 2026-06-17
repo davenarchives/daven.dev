@@ -50,7 +50,7 @@ export function Navbar() {
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 h-[80px] bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-gray-200 dark:border-slate-800 transition-colors">
+    <nav className="absolute top-0 left-0 right-0 z-50 h-[80px] bg-[#fafafa] dark:bg-[#171717] transition-colors">
       <div className="max-w-[1440px] mx-auto h-full flex items-center justify-between px-6 lg:px-12">
         <Link href="/" className="font-bold text-lg lg:text-xl tracking-tight flex items-baseline">
           <span className="text-yellow-400 text-sm lg:text-base mr-1.5">{">_"}</span>
@@ -68,7 +68,7 @@ export function Navbar() {
           
           <button
             onClick={toggleTheme}
-            className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-slate-800 transition-colors"
+            className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-white/10 transition-colors"
             aria-label="Toggle Theme"
           >
             {mounted && theme === "dark" ? (
