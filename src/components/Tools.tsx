@@ -16,19 +16,6 @@ export function Tools() {
 
   const categories = [
     {
-      title: "Backend",
-      desc: "I love problem-solving and handling data behind the scenes. I strive to build efficient, reliable, and secure backend systems.",
-      type: "icons",
-      items: [
-        { name: "nodedotjs", label: "Node.js", color: "339939" },
-        { name: "express", label: "Express", color: isDarkMode ? "ffffff" : "000000" },
-        { name: "firebase", label: "Firebase", color: "FFCA28" },
-        { name: "redis", label: "Redis", color: "DC382D" },
-        { name: "graphql", label: "GraphQL", color: "E10098" },
-        { name: "puppeteer", label: "Puppeteer", color: "40B5A4" }
-      ]
-    },
-    {
       title: "Frontend & Design",
       desc: "I enjoy building clean and interactive user interfaces. My main goal is always to create fast websites with solid user experiences.",
       type: "icons",
@@ -40,6 +27,21 @@ export function Tools() {
         { name: "html5", label: "HTML5", color: "E34F26" },
         { name: "tailwindcss", label: "Tailwind", color: "06B6D4" },
         { name: "figma", label: "Figma", color: "F24E1E" }
+      ]
+    },
+    {
+      title: "Backend",
+      desc: "I love problem-solving and handling data behind the scenes. I strive to build efficient, reliable, and secure backend systems.",
+      type: "icons",
+      items: [
+        { name: "nodedotjs", label: "Node.js", color: "339939" },
+        { name: "express", label: "Express", color: isDarkMode ? "ffffff" : "000000" },
+        { name: "mongodb", label: "MongoDB", color: "47A248" },
+        { name: "firebase", label: "Firebase", color: "FFCA28" },
+        { name: "redis", label: "Redis", color: "DC382D" },
+        { name: "graphql", label: "GraphQL", color: "E10098" },
+        { name: "convex", label: "Convex", color: isDarkMode ? "ffffff" : "000000" },
+        { name: "puppeteer", label: "Puppeteer", color: "40B5A4" }
       ]
     },
     {
