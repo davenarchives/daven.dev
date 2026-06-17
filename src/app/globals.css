@@ -21,7 +21,7 @@
 }
 
 .dark {
-  --background: #0f172a;
+  --background: #171717;
   --foreground: #ffffff;
 }
 
@@ -29,6 +29,15 @@ body {
   background-color: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans);
+}
+
+/* Hide scrollbar */
+::-webkit-scrollbar {
+  display: none;
+}
+* {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
 }
 
 ::view-transition-old(root),
