@@ -27,7 +27,7 @@ export default function Home() {
 
           <section
             id="experience"
-            className="min-h-[calc(100svh-80px)] scroll-mt-[104px] pt-4 pb-20 lg:pt-8 lg:pb-24 flex items-start justify-center"
+            className="min-h-[calc(100svh-80px)] scroll-mt-0 pt-6 pb-20 lg:pt-6 lg:pb-24 flex items-start justify-center"
           >
             <Experience />
           </section>
@@ -37,7 +37,7 @@ export default function Home() {
           id="tools-section"
           className="min-h-[calc(100svh-80px)] px-6 py-20 lg:py-24 flex items-center"
         >
-          <div className="max-w-[960px] mx-auto w-full">
+          <div className="max-w-[1024px] mx-auto w-full">
             <Tools />
           </div>
         </section>
