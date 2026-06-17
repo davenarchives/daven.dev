@@ -21,7 +21,7 @@ const experiences = [
       }
     ],
     card: {
-      color: "bg-[#91BEE6] dark:bg-[#477093]", // Pastel blue like reference
+      color: "bg-[#91BEE6] dark:bg-[#aec5df]", // Pastel blue like reference
       items: [
         {
           desc: "Post your unsaid thoughts embedded with music",
@@ -53,7 +53,7 @@ const experiences = [
       }
     ],
     card: {
-      color: "bg-[#C4B5FD] dark:bg-[#5B21B6]", // Pastel purple
+      color: "bg-[#C4B5FD] dark:bg-[#b5adc6]", // Pastel purple
       items: [
         {
           desc: "Leading the development of the official IT portal",
@@ -95,7 +95,7 @@ const experiences = [
       }
     ],
     card: {
-      color: "bg-[#A7F3D0] dark:bg-[#065F46]", // Pastel green
+      color: "bg-[#A7F3D0] dark:bg-[#b0c8bd]", // Pastel green
       items: [
         {
           desc: "Designed Barangay Connect announcement portals",
@@ -184,16 +184,16 @@ export function Experience() {
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className={`font-palanquin text-[44px] lg:text-[54px] font-bold mb-8 text-center leading-none ${isDarkMode ? "text-cyan-400" : "text-yellow-400"}`}
+        className="font-palanquin text-[32px] md:text-[40px] font-bold mb-12 text-center leading-none text-black dark:text-white"
       >
         Experience
       </motion.h2>
 
-      <div className="grid lg:grid-cols-[480px_minmax(0,680px)] justify-center gap-12 lg:gap-[70px]">
+      <div className="grid lg:grid-cols-2 justify-center gap-12 lg:gap-0">
         
         {/* Left Column: Sticky Card (Desktop Only) */}
-        <div className="hidden lg:flex flex-col justify-start relative">
-          <div className="sticky top-[calc(50svh-200px)] z-10 w-[480px] h-[480px]">
+        <div className="hidden lg:flex flex-col items-start relative lg:pl-4">
+          <div className="sticky top-[calc(50svh-240px)] z-10 w-[480px] h-[480px]">
           <motion.div 
             key={activeSection}
             initial={{ opacity: 0, y: 20 }}
@@ -204,7 +204,7 @@ export function Experience() {
             {hasImages ? (
               <div className="relative w-full h-full flex flex-col justify-between pb-4">
                 {/* Title Area - Aligned to top */}
-                <div className="mb-4 flex items-start px-2">
+                <div className="mb-4 flex justify-start px-2 text-left">
                   <motion.h4 
                     key={currentImageIndex}
                     initial={{ opacity: 0, y: 10 }}
@@ -237,7 +237,7 @@ export function Experience() {
                           animate={{
                             zIndex: numItems - diff,
                             scale: 1 - diff * 0.05,
-                            x: diff * 15,
+                            x: 0,
                             y: diff * 15,
                             opacity: 1 - diff * 0.15,
                           }}
@@ -294,8 +294,8 @@ export function Experience() {
                 <h4 className="font-palanquin font-bold text-[28px] leading-[1.1] text-black dark:text-white mb-6">
                   {activeData.card.items[0].desc}
                 </h4>
-                <div className="w-full flex-1 rounded-xl bg-black/10 dark:bg-white/10 flex items-center justify-center">
-                  <span className="text-sm font-bold opacity-50">More previews soon</span>
+                <div className="w-full flex-1 rounded-xl bg-black/10 dark:bg-black/20 flex items-center justify-center">
+                  <span className="text-sm font-bold opacity-50 text-black dark:text-white">More previews soon</span>
                 </div>
               </div>
             )}
@@ -305,9 +305,9 @@ export function Experience() {
 
       {/* Right Column: Experience Timeline */}
       <div className="w-full max-w-[680px] relative flex flex-col justify-start px-0">
-        <div className="relative lg:pl-[96px] pb-[30vh]">
+        <div className="relative lg:pl-[40px] pb-[30vh]">
           {/* The Vertical Line */}
-          <div className="absolute top-[8px] bottom-0 left-[16px] lg:left-[96px] w-[2px] bg-gray-300 dark:bg-slate-700" />
+          <div className="absolute top-[8px] bottom-0 left-[16px] lg:left-[40px] w-[2px] bg-gray-300" />
 
           {experiences.map((exp, index) => {
             const isActive = index === activeSection;
@@ -316,7 +316,7 @@ export function Experience() {
               <motion.div 
                 key={index}
                 data-index={index}
-                className={`experience-item relative mb-20 pl-[40px] lg:pl-[24px] transition-all duration-500 ${isActive ? "opacity-100" : "opacity-30 grayscale blur-[1px]"}`}
+                className={`experience-item relative mb-20 pl-[40px] lg:pl-[40px] transition-all duration-500 ${isActive ? "opacity-100" : "opacity-30 grayscale blur-[1px]"}`}
               >
                 {/* The Year (Left aligned on Desktop) */}
                 <div className="hidden lg:block absolute left-[-110px] w-[90px] text-right top-1">
@@ -326,7 +326,7 @@ export function Experience() {
                 </div>
 
                 {/* The Dot */}
-                <div className={`absolute left-[-21px] lg:left-[-5px] top-1.5 w-[10px] h-[10px] rounded-full z-10 transition-colors duration-500 ${isActive ? (isDarkMode ? "bg-cyan-400 shadow-[0_0_10px_rgba(34,211,238,0.5)]" : "bg-yellow-400") : "bg-gray-300 dark:bg-slate-700"}`} />
+                <div className={`absolute left-[-21px] lg:left-[-5px] top-1.5 w-[10px] h-[10px] rounded-full z-10 transition-colors duration-500 ${isActive ? "bg-yellow-400" : "bg-gray-300"}`} />
                 
                 {/* The Mobile Year */}
                 <div className="lg:hidden mb-2">
@@ -366,7 +366,7 @@ export function Experience() {
                       {exp.card.items[currentImageIndex]?.desc}
                     </p>
                     {exp.card.items[currentImageIndex]?.image && (
-                      <div className="relative w-full h-[180px] rounded-xl overflow-hidden bg-black/5 dark:bg-white/5 border border-black/10">
+                      <div className="relative w-full h-[180px] rounded-xl overflow-hidden bg-black/5 dark:bg-black/10 border border-black/10 dark:border-white/10">
                          <div className="absolute inset-0 bg-[#FDE047] dark:bg-[#CA8A04] translate-x-2 translate-y-2 rounded-xl" />
                          <div className="absolute inset-0 rounded-xl overflow-hidden">
                           <Image 
