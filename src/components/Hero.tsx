@@ -28,7 +28,7 @@ export function Hero() {
         >
           <div className={`relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-[8px] ${isDarkMode ? "border-cyan-400" : "border-yellow-400"} transition-colors duration-300`}>
              <Image 
-                src={isDarkMode ? "/assets/darkmode.png" : "/assets/lightmode.png"} 
+                src={isDarkMode ? "/assets/theme/darkmode.png" : "/assets/theme/lightmode.png"} 
                 alt="Daven Austhine Sumagang"
                 fill
                 className="object-cover"
