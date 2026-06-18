@@ -59,13 +59,7 @@ export function Navbar() {
         </Link>
 
         <div className="hidden lg:flex items-center gap-12">
-          <Link href="#projects" className="font-semibold text-gray-600 dark:text-gray-300 hover:text-cyan-400 dark:hover:text-cyan-400 transition-colors">
-            Projects
-          </Link>
-          <Link href="#blogs" className="font-semibold text-gray-600 dark:text-gray-300 hover:text-cyan-400 dark:hover:text-cyan-400 transition-colors">
-            Blogs
-          </Link>
-          
+
           <button
             onClick={toggleTheme}
             className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-white/10 transition-colors"
