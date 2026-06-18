@@ -23,7 +23,7 @@ export function ProfileSidebar() {
         className="relative w-full h-full rounded-full overflow-hidden"
       >
          <Image 
-            src={isDarkMode ? "/assets/darkmode.png" : "/assets/lightmode.png"} 
+            src={isDarkMode ? "/assets/theme/darkmode.png" : "/assets/theme/lightmode.png"} 
             alt="Daven Austhine Sumagang"
             fill
             className="object-cover"
