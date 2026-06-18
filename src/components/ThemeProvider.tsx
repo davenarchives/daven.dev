@@ -11,7 +11,7 @@ function FaviconUpdater() {
     const currentTheme = theme === "system" ? resolvedTheme : theme;
     if (!currentTheme) return;
     
-    const faviconSrc = currentTheme === "dark" ? "/assets/darkmode.png" : "/assets/lightmode.png";
+    const faviconSrc = currentTheme === "dark" ? "/assets/theme/darkmode.png" : "/assets/theme/lightmode.png";
     
     const img = new window.Image();
     img.onload = () => {
