@@ -1,5 +1,5 @@
 "use client";
-import { motion, useMotionValue, useSpring } from "framer-motion";
+import { motion, useMotionValue, useSpring, animate } from "framer-motion";
 import { Github01Icon, Facebook02Icon, Linkedin02Icon, MailAtSign01Icon, Csv02Icon } from "hugeicons-react";
 
 function SocialLink({
@@ -48,60 +48,28 @@ export function Intro() {
 
   const scrollToExperience = () => {
     const target = document.getElementById("experience");
-
     if (!target) return;
-
-    const startY = window.scrollY;
-    const targetY = target.getBoundingClientRect().top + window.scrollY - 104;
-    const distance = targetY - startY;
-    const duration = 750;
-    let startTime: number | null = null;
-
-    const easeInOutCubic = (t: number) =>
-      t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
-
-    const animateScroll = (currentTime: number) => {
-      startTime ??= currentTime;
-      const elapsed = currentTime - startTime;
-      const progress = Math.min(elapsed / duration, 1);
-
-      window.scrollTo(0, startY + distance * easeInOutCubic(progress));
-
-      if (progress < 1) {
-        requestAnimationFrame(animateScroll);
-      }
-    };
-
-    requestAnimationFrame(animateScroll);
+    
+    const offsetTop = target.getBoundingClientRect().top + window.scrollY;
+    
+    animate(window.scrollY, offsetTop, {
+      duration: 0.6,
+      ease: [0.65, 0, 0.35, 1],
+      onUpdate: (value) => window.scrollTo(0, value),
+    });
   };
 
   const scrollToProjects = () => {
     const target = document.getElementById("projects");
-
     if (!target) return;
-
-    const startY = window.scrollY;
-    const targetY = target.getBoundingClientRect().top + window.scrollY - 104;
-    const distance = targetY - startY;
-    const duration = 750;
-    let startTime: number | null = null;
-
-    const easeInOutCubic = (t: number) =>
-      t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
-
-    const animateScroll = (currentTime: number) => {
-      startTime ??= currentTime;
-      const elapsed = currentTime - startTime;
-      const progress = Math.min(elapsed / duration, 1);
-
-      window.scrollTo(0, startY + distance * easeInOutCubic(progress));
-
-      if (progress < 1) {
-        requestAnimationFrame(animateScroll);
-      }
-    };
-
-    requestAnimationFrame(animateScroll);
+    
+    const offsetTop = target.getBoundingClientRect().top + window.scrollY;
+    
+    animate(window.scrollY, offsetTop, {
+      duration: 0.6,
+      ease: [0.65, 0, 0.35, 1],
+      onUpdate: (value) => window.scrollTo(0, value),
+    });
   };
 
   return (
@@ -171,7 +139,7 @@ export function Intro() {
           </button>
           <button 
              onClick={scrollToProjects}
-             className="w-full sm:w-[144px] h-[50px] border-2 border-black dark:border-[#d4d4d4] bg-gray-200 text-black shadow-[4px_4px_0_0_rgba(0,0,0,1)] dark:shadow-[4px_4px_0_0_#d4d4d4] transition-all flex items-center justify-center text-[16px] hover:translate-y-[2px] hover:translate-x-[2px] hover:shadow-[2px_2px_0_0_rgba(0,0,0,1)] dark:hover:shadow-[2px_2px_0_0_#d4d4d4] dark:bg-[#333333] dark:text-white"
+             className="w-full sm:w-[144px] h-[50px] border-2 border-black dark:border-[#d4d4d4] bg-transparent text-black shadow-[4px_4px_0_0_rgba(0,0,0,1)] dark:shadow-[4px_4px_0_0_#d4d4d4] transition-all flex items-center justify-center text-[16px] hover:translate-y-[2px] hover:translate-x-[2px] hover:shadow-[2px_2px_0_0_rgba(0,0,0,1)] dark:hover:shadow-[2px_2px_0_0_#d4d4d4] dark:text-white"
           >
             Projects
           </button>
