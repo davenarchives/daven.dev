@@ -75,7 +75,7 @@ export function Tools() {
         viewport={{ once: true }}
         className="font-palanquin text-[32px] md:text-[40px] font-bold mb-12 text-center leading-none text-black dark:text-white"
       >
-        Skills
+        Tools
       </motion.h2>
 
       <div className="grid md:grid-cols-2 gap-6 lg:gap-8 max-w-[1024px] mx-auto items-start">
