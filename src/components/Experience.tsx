@@ -307,7 +307,7 @@ export function Experience() {
 
       {/* Right Column: Experience Timeline */}
       <div className="w-full max-w-[680px] relative flex flex-col justify-start px-0">
-        <div className="relative pb-[30vh]">
+        <div className="relative">
           <VerticalTimeline layout="1-column-left" lineColor={isDarkMode ? "#374151" : "#d1d5db"}>
             {experiences.map((exp, index) => {
               const isActive = index === activeSection;
