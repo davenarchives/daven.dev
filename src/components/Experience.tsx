@@ -4,6 +4,8 @@ import { motion } from "framer-motion";
 import { useTheme } from "next-themes";
 import { useEffect, useState, useRef } from "react";
 import Image from "next/image";
+import { VerticalTimeline, VerticalTimelineElement } from "react-vertical-timeline-component";
+import "react-vertical-timeline-component/style.min.css";
 
 const experiences = [
   {
@@ -25,15 +27,15 @@ const experiences = [
       items: [
         {
           desc: "Post your unsaid thoughts embedded with music",
-          image: "/assets/anonywall-1.png"
+          image: "/assets/experience/anonywall-1.png"
         },
         {
           desc: "Discover specialized boards for any topic",
-          image: "/assets/anonywall-2.png"
+          image: "/assets/experience/anonywall-2.png"
         },
         {
           desc: "Prototyped onboarding for recruitment platform",
-          image: "/assets/serbisure.png"
+          image: "/assets/experience/serbisure.png"
         }
       ]
     }
@@ -57,15 +59,15 @@ const experiences = [
       items: [
         {
           desc: "Leading the development of the official IT portal",
-          image: "/assets/site-hero.png"
+          image: "/assets/experience/site-hero.png"
         },
         {
           desc: "Building dynamic news and announcement hubs",
-          image: "/assets/site-news.png"
+          image: "/assets/experience/site-news.png"
         },
         {
           desc: "Coordinating the HACK-IT-ON 2026 tech event",
-          image: "/assets/site-hackathon.png",
+          image: "/assets/experience/site-hackathon.png",
           hotspots: [
             { name: "James", left: "19%", top: "35%", color: "bg-[#FFB3BA]", border: "border-t-[#FFB3BA]" },
             { name: "Me", left: "29%", top: "32%", color: "bg-[#BAE1FF]", border: "border-t-[#BAE1FF]" },
@@ -99,15 +101,15 @@ const experiences = [
       items: [
         {
           desc: "Designed Barangay Connect announcement portals",
-          image: "/assets/barangay-announcements.png"
+          image: "/assets/experience/barangay-announcements.png"
         },
         {
           desc: "Prototyped Local Business Listing directories",
-          image: "/assets/barangay-listings.png"
+          image: "/assets/experience/barangay-listings.png"
         },
         {
           desc: "Developed the eDiary mobile frontend with Expo",
-          image: "/assets/ediary.png"
+          image: "/assets/experience/ediary.png"
         }
       ]
     }
@@ -305,84 +307,97 @@ export function Experience() {
 
       {/* Right Column: Experience Timeline */}
       <div className="w-full max-w-[680px] relative flex flex-col justify-start px-0">
-        <div className="relative lg:pl-[40px] pb-[30vh]">
-          {/* The Vertical Line */}
-          <div className="absolute top-[8px] bottom-0 left-[16px] lg:left-[40px] w-[2px] bg-gray-300" />
+        <div className="relative pb-[30vh]">
+          <VerticalTimeline layout="1-column-left" lineColor={isDarkMode ? "#374151" : "#d1d5db"}>
+            {experiences.map((exp, index) => {
+              const isActive = index === activeSection;
 
-          {experiences.map((exp, index) => {
-            const isActive = index === activeSection;
-
-            return (
-              <motion.div 
-                key={index}
-                data-index={index}
-                className={`experience-item relative mb-20 pl-[40px] lg:pl-[40px] transition-all duration-500 ${isActive ? "opacity-100" : "opacity-30 grayscale blur-[1px]"}`}
-              >
-                {/* The Year (Left aligned on Desktop) */}
-                <div className="hidden lg:block absolute left-[-110px] w-[90px] text-right top-1">
-                  <span className={`font-bold text-[12px] leading-tight transition-colors ${isActive ? "text-black dark:text-white" : "text-gray-500"}`}>
-                    {exp.year}
-                  </span>
-                </div>
-
-                {/* The Dot */}
-                <div className={`absolute left-[-21px] lg:left-[-5px] top-1.5 w-[10px] h-[10px] rounded-full z-10 transition-colors duration-500 ${isActive ? "bg-yellow-400" : "bg-gray-300"}`} />
-                
-                {/* The Mobile Year */}
-                <div className="lg:hidden mb-2">
-                  <span className={`font-bold text-[12px] ${isActive ? "text-black dark:text-white" : "text-gray-500"}`}>
-                    {exp.year}
-                  </span>
-                </div>
-
-                {/* The Content */}
-                <div className="flex-1">
-                  <h3 className={`font-palanquin text-[24px] lg:text-[28px] font-bold mb-3 leading-tight transition-colors ${isActive ? (isDarkMode ? "text-yellow-400" : "text-cyan-400") : "text-gray-400 dark:text-gray-600"}`}>
-                    {exp.title}
-                  </h3>
-                  
-                  <div className="space-y-6">
-                    {exp.roles.map((role, rIndex) => (
-                      <div key={rIndex}>
-                        <h4 className={`font-roboto text-[16px] lg:text-[18px] font-bold mb-2 italic ${isActive ? "text-black dark:text-white" : "text-gray-500 dark:text-gray-500"}`}>
-                          {role.subtitle}
-                        </h4>
-                        <p className={`font-roboto text-[14px] lg:text-[15px] font-medium leading-relaxed ${isActive ? "text-gray-700 dark:text-gray-300" : "text-gray-500 dark:text-gray-600"}`}>
-                          • {role.bullet}
-                        </p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Mobile Card Fallback */}
-                {isActive && (
-                  <motion.div 
-                    initial={{ opacity: 0, height: 0 }}
-                    animate={{ opacity: 1, height: "auto" }}
-                    className={`lg:hidden mt-8 w-full rounded-2xl p-5 shadow-md ${exp.card.color}`}
+              return (
+                <div key={index} data-index={index} className="experience-item">
+                  <VerticalTimelineElement
+                    className={`transition-all duration-500 ${isActive ? "opacity-100" : "opacity-30 grayscale blur-[1px]"}`}
+                    contentStyle={{ 
+                      background: 'transparent', 
+                      boxShadow: 'none',
+                      padding: '0 0 2rem 1rem'
+                    }}
+                    contentArrowStyle={{ display: 'none' }}
+                    iconStyle={{ 
+                      background: isActive ? '#facc15' : '#d1d5db',
+                      boxShadow: isActive ? '0 0 0 4px rgba(250, 204, 21, 0.2)' : '0 0 0 4px rgba(209, 213, 219, 0.2)',
+                      width: '16px',
+                      height: '16px',
+                      left: '12px',
+                      marginLeft: '0',
+                      marginTop: '16px'
+                    }}
+                    icon={<div />}
                   >
-                    <p className="font-palanquin font-bold text-lg mb-4 text-black dark:text-white">
-                      {exp.card.items[currentImageIndex]?.desc}
-                    </p>
-                    {exp.card.items[currentImageIndex]?.image && (
-                      <div className="relative w-full h-[180px] rounded-xl overflow-hidden bg-black/5 dark:bg-black/10 border border-black/10 dark:border-white/10">
-                         <div className="absolute inset-0 bg-[#FDE047] dark:bg-[#CA8A04] translate-x-2 translate-y-2 rounded-xl" />
-                         <div className="absolute inset-0 rounded-xl overflow-hidden">
-                          <Image 
-                            src={exp.card.items[currentImageIndex].image} 
-                            alt="Project Highlight"
-                            fill
-                            className="object-contain object-center scale-[0.98]"
-                          />
-                         </div>
+                    <div className="flex-1 relative">
+                      {/* Desktop Year */}
+                      <div className="hidden lg:block absolute right-[calc(100%+80px)] w-[120px] text-right top-[16px]">
+                        {exp.year.split("-").map((part, i) => (
+                          <span key={i} className={`block font-bold text-[12px] leading-tight transition-colors ${isActive ? "text-black dark:text-white" : "text-gray-500"}`}>
+                            {i > 0 ? `- ${part}` : part}
+                          </span>
+                        ))}
                       </div>
+                      
+                      {/* Mobile Year */}
+                      <div className="lg:hidden mb-2">
+                        <span className={`font-bold text-[12px] ${isActive ? "text-black dark:text-white" : "text-gray-500"}`}>
+                          {exp.year.replace("-", " - ")}
+                        </span>
+                      </div>
+
+                      <h3 className={`font-palanquin text-[24px] lg:text-[28px] font-bold mb-3 leading-tight transition-colors ${isActive ? (isDarkMode ? "text-yellow-400" : "text-cyan-400") : "text-gray-400 dark:text-gray-600"}`}>
+                        {exp.title}
+                      </h3>
+                      
+                      <div className="space-y-6">
+                        {exp.roles.map((role, rIndex) => (
+                          <div key={rIndex}>
+                            <h4 className={`font-roboto text-[16px] lg:text-[18px] font-bold mb-2 italic ${isActive ? "text-black dark:text-white" : "text-gray-500 dark:text-gray-500"}`}>
+                              {role.subtitle}
+                            </h4>
+                            <p className={`font-roboto text-[14px] lg:text-[15px] font-medium leading-relaxed ${isActive ? "text-gray-700 dark:text-gray-300" : "text-gray-500 dark:text-gray-600"}`}>
+                              • {role.bullet}
+                            </p>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Mobile Card Fallback */}
+                    {isActive && (
+                      <motion.div 
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: "auto" }}
+                        className={`lg:hidden mt-8 w-full rounded-2xl p-5 shadow-md ${exp.card.color}`}
+                      >
+                        <p className="font-palanquin font-bold text-lg mb-4 text-black dark:text-white">
+                          {exp.card.items[currentImageIndex]?.desc}
+                        </p>
+                        {exp.card.items[currentImageIndex]?.image && (
+                          <div className="relative w-full h-[180px] rounded-xl overflow-hidden bg-black/5 dark:bg-black/10 border border-black/10 dark:border-white/10">
+                             <div className="absolute inset-0 bg-[#FDE047] dark:bg-[#CA8A04] translate-x-2 translate-y-2 rounded-xl" />
+                             <div className="absolute inset-0 rounded-xl overflow-hidden">
+                              <Image 
+                                src={exp.card.items[currentImageIndex].image} 
+                                alt="Project Highlight"
+                                fill
+                                className="object-contain object-center scale-[0.98]"
+                              />
+                             </div>
+                          </div>
+                        )}
+                      </motion.div>
                     )}
-                  </motion.div>
-                )}
-              </motion.div>
-            );
-          })}
+                  </VerticalTimelineElement>
+                </div>
+              );
+            })}
+          </VerticalTimeline>
         </div>
       </div>
       </div>
