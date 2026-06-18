@@ -3,6 +3,7 @@ import { ProfileSidebar } from "@/components/ProfileSidebar";
 import { Intro } from "@/components/Intro";
 import { Experience } from "@/components/Experience";
 import { Tools } from "@/components/Tools";
+import { Projects } from "@/components/Projects";
 import { Footer } from "@/components/Footer";
 
 export default function Home() {
@@ -27,7 +28,7 @@ export default function Home() {
 
           <section
             id="experience"
-            className="min-h-[calc(100svh-80px)] scroll-mt-0 pt-6 pb-20 lg:pt-6 lg:pb-24 flex items-start justify-center"
+            className="min-h-[calc(100svh-80px)] scroll-mt-0 pt-6 pb-32 lg:pt-6 lg:pb-[150px] flex items-start justify-center"
           >
             <Experience />
           </section>
@@ -35,10 +36,19 @@ export default function Home() {
 
         <section
           id="tools-section"
-          className="min-h-[calc(100svh-80px)] px-6 py-20 lg:py-24 flex items-center"
+          className="min-h-[calc(100svh-80px)] scroll-mt-0 px-6 pt-6 pb-32 lg:pt-6 lg:pb-[150px] flex items-start justify-center"
         >
           <div className="max-w-[1024px] mx-auto w-full">
             <Tools />
+          </div>
+        </section>
+
+        <section
+          id="projects"
+          className="min-h-[calc(100svh-80px)] scroll-mt-0 px-6 pt-6 pb-20 lg:pt-6 lg:pb-24 flex items-start justify-center"
+        >
+          <div className="w-full">
+            <Projects />
           </div>
         </section>
       </main>
