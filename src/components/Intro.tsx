@@ -75,6 +75,35 @@ export function Intro() {
     requestAnimationFrame(animateScroll);
   };
 
+  const scrollToProjects = () => {
+    const target = document.getElementById("projects");
+
+    if (!target) return;
+
+    const startY = window.scrollY;
+    const targetY = target.getBoundingClientRect().top + window.scrollY - 104;
+    const distance = targetY - startY;
+    const duration = 750;
+    let startTime: number | null = null;
+
+    const easeInOutCubic = (t: number) =>
+      t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+
+    const animateScroll = (currentTime: number) => {
+      startTime ??= currentTime;
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+
+      window.scrollTo(0, startY + distance * easeInOutCubic(progress));
+
+      if (progress < 1) {
+        requestAnimationFrame(animateScroll);
+      }
+    };
+
+    requestAnimationFrame(animateScroll);
+  };
+
   return (
     <section id="intro" className="w-full lg:w-[650px] relative flex flex-col text-left px-6 lg:px-0">
       <motion.div
@@ -101,7 +130,7 @@ export function Intro() {
             >
               vibing with code
               <motion.img
-                src="/assets/cattyping.gif"
+                src="/assets/gifs/cattyping.gif"
                 alt="typing cat"
                 style={{ 
                   x: springX, 
@@ -128,7 +157,7 @@ export function Intro() {
           <SocialLink href="mailto:sumagang.austhine@gmail.com" label="Email" colorClass="text-orange-600 dark:text-orange-300">
             <MailAtSign01Icon className="w-[32px] h-[32px]" />
           </SocialLink>
-          <SocialLink href="#" label="Resume" colorClass="text-rose-600 dark:text-rose-300">
+          <SocialLink href="/assets/docs/resume.pdf" label="Resume" colorClass="text-rose-600 dark:text-rose-300">
             <Csv02Icon className="w-[32px] h-[32px]" />
           </SocialLink>
         </div>
@@ -140,7 +169,10 @@ export function Intro() {
           >
             Experience
           </button>
-          <button className="w-full sm:w-[144px] h-[50px] border-2 border-black dark:border-[#d4d4d4] bg-gray-200 text-black shadow-[4px_4px_0_0_rgba(0,0,0,1)] dark:shadow-[4px_4px_0_0_#d4d4d4] transition-all flex items-center justify-center text-[16px] hover:translate-y-[2px] hover:translate-x-[2px] hover:shadow-[2px_2px_0_0_rgba(0,0,0,1)] dark:hover:shadow-[2px_2px_0_0_#d4d4d4] dark:bg-[#333333] dark:text-white">
+          <button 
+             onClick={scrollToProjects}
+             className="w-full sm:w-[144px] h-[50px] border-2 border-black dark:border-[#d4d4d4] bg-gray-200 text-black shadow-[4px_4px_0_0_rgba(0,0,0,1)] dark:shadow-[4px_4px_0_0_#d4d4d4] transition-all flex items-center justify-center text-[16px] hover:translate-y-[2px] hover:translate-x-[2px] hover:shadow-[2px_2px_0_0_rgba(0,0,0,1)] dark:hover:shadow-[2px_2px_0_0_#d4d4d4] dark:bg-[#333333] dark:text-white"
+          >
             Projects
           </button>
         </div>
