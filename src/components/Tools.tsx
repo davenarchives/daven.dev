@@ -21,6 +21,7 @@ export function Tools() {
       type: "icons",
       items: [
         { name: "react", label: "React", color: "61DAFB" },
+        { name: "nextdotjs", label: "Next.js", color: isDarkMode ? "ffffff" : "000000" },
         { name: "svelte", label: "Svelte", color: "FF3E00" },
         { name: "typescript", label: "TypeScript", color: "3178C6" },
         { name: "astro", label: "Astro", color: "FF5D01" },
@@ -67,7 +68,7 @@ export function Tools() {
   ];
 
   return (
-    <section id="tools" className="py-16 md:py-24 overflow-hidden">
+    <div className="w-full overflow-hidden">
       <motion.h2 
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -128,6 +129,6 @@ export function Tools() {
           </motion.div>
         ))}
       </div>
-    </section>
+    </div>
   );
 }
