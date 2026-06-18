@@ -11,7 +11,7 @@ const sequenceConfig = [
     eyebrowClass: "bg-[#bc2424] text-white dark:text-[#141f36]",
     body: [
       { content: "You've watched 999 hours of JavaScript tutorials..." },
-      { content: "but still can't ", accent: "CENTER A DIV.", modifier: "text-[#bc2424]", gif: "/assets/centerdiv.gif" }
+      { content: "but still can't ", accent: "CENTER A DIV.", modifier: "text-[#bc2424]", gif: "/assets/gifs/centerdiv.gif" }
     ],
     footer: { href: "#solution", content: "oh no. 😢" }
   },
@@ -21,7 +21,7 @@ const sequenceConfig = [
     eyebrowClass: "bg-[#1fd46b] text-white dark:text-[#04140d]",
     body: [
       { content: "Embrace the chaos." },
-      { content: "Welcome to ", accent: "VIBE CODING.", modifier: "text-[#1fd46b]", gif: "/assets/vibe.gif" }
+      { content: "Welcome to ", accent: "VIBE CODING.", modifier: "text-[#1fd46b]", gif: "/assets/gifs/vibe.gif" }
     ],
     footer: { href: "#stop-watching", content: "but like how? 🤔" }
   },
@@ -30,7 +30,7 @@ const sequenceConfig = [
     eyebrow: "STOP WATCHING",
     eyebrowClass: "bg-[#b646f5] text-white dark:text-[#1a0634]",
     body: [
-      { content: "Tutorials you'll forget ", accent: "TOMORROW.", modifier: "text-[#b646f5]", gif: "/assets/tomorrow.gif" }
+      { content: "Tutorials you'll forget ", accent: "TOMORROW.", modifier: "text-[#b646f5]", gif: "/assets/gifs/tomorrow.gif" }
     ],
     footer: { href: "#start-building", content: "what? why? 🤨" }
   },
@@ -39,8 +39,8 @@ const sequenceConfig = [
     eyebrow: "START BUILDING",
     eyebrowClass: "bg-[#2c9eed] text-white dark:text-[#04233a]",
     body: [
-      { content: "Stuff that ", accent: "BARELY WORKS", modifier: "text-[#2c9eed]", gif: "/assets/barelyworks.gif", suffix: " — and fix it live." },
-      { content: "Learn coding fundamentals by ", accent: "BREAKING THEM.", modifier: "text-[#2c9eed]", gif: "/assets/breakingthem.gif" }
+      { content: "Stuff that ", accent: "BARELY WORKS", modifier: "text-[#2c9eed]", gif: "/assets/gifs/barelyworks.gif", suffix: " — and fix it live." },
+      { content: "Learn coding fundamentals by ", accent: "BREAKING THEM.", modifier: "text-[#2c9eed]", gif: "/assets/gifs/breakingthem.gif" }
     ],
     footer: { href: "#have-fun", content: "is that possible? 😳" }
   },
@@ -49,7 +49,7 @@ const sequenceConfig = [
     eyebrow: "HAVE FUN",
     eyebrowClass: "bg-[#f29e24] text-white dark:text-[#2a1402]",
     body: [
-      { content: "Stop learning. ", accent: "START DOING.", modifier: "text-[#f29e24]", gif: "/assets/havefun.gif" },
+      { content: "Stop learning. ", accent: "START DOING.", modifier: "text-[#f29e24]", gif: "/assets/gifs/havefun.gif" },
       { content: "Make weird stuff that works!" }
     ],
     footer: { href: "#projects", content: "hell yeah! 😎" }
