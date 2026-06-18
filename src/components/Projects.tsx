@@ -14,7 +14,7 @@ export function Projects() {
     },
     {
       title: "Yorumi",
-      desc: "watch/read anime and manga",
+      desc: "anime and manga streaming webapp",
       cover: "/assets/projects/yorumi-bg.png",
       icon: "/assets/projects/yorumi-app-icon.png",
       link: "#"
