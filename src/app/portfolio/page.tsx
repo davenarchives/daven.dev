@@ -29,9 +29,9 @@ export default function Home() {
               <div className="relative w-20 h-20 rounded-full overflow-hidden border-2 border-border shrink-0">
                 {mounted ? (
                   theme === 'dark' ? (
-                    <img src="/assets/darkmode.png" alt="Profile" className="w-full h-full object-cover" />
+                    <img src="/assets/theme/darkmode.png" alt="Profile" className="w-full h-full object-cover" />
                   ) : (
-                    <img src="/assets/lightmode.png" alt="Profile" className="w-full h-full object-cover" />
+                    <img src="/assets/theme/lightmode.png" alt="Profile" className="w-full h-full object-cover" />
                   )
                 ) : (
                   <div className="w-full h-full bg-surface-hover animate-pulse" />
