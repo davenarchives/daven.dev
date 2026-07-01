@@ -1,5 +1,6 @@
 "use client";
 import { motion, useMotionValue, useSpring, animate } from "framer-motion";
+import { MapPin } from "lucide-react";
 import { Github01Icon, Facebook02Icon, Linkedin02Icon, MailAtSign01Icon, Csv02Icon } from "hugeicons-react";
 
 function SocialLink({
@@ -81,15 +82,18 @@ export function Intro() {
         className="w-full flex flex-col"
       >
         <div className="mb-[32px]">
-          <p className="font-palanquin text-[20px] font-semibold text-black dark:text-white leading-none mb-2">
-            Hi Im,
+          <p className="font-palanquin text-[20px] font-semibold text-gray-500 dark:text-slate-300 leading-none mb-2">
+            I'm Daven Austhine Sumagang,
           </p>
-          <h1 className="font-palanquin text-[40px] lg:text-[48px] font-bold text-cyan-400 leading-none mb-2 lg:whitespace-nowrap">
-            Daven Austhine Sumagang
-          </h1>
-          <h2 className="font-roboto italic text-[24px] lg:text-[36px] font-semibold text-gray-500 dark:text-slate-300 leading-none mb-4">
+          <h1 className="font-roboto italic text-[40px] lg:text-[48px] font-bold text-black dark:text-white leading-none mb-2">
             UI/UX & Front-end Developer
-          </h2>
+          </h1>
+          <div className="flex items-center gap-1.5 mb-6 text-gray-500 dark:text-gray-400">
+            <MapPin className="w-4 h-4" />
+            <p className="font-mono text-[13px] uppercase tracking-widest mt-0.5">
+              Cagayan de Oro, Philippines
+            </p>
+          </div>
           <p className="text-base lg:text-[18px] text-gray-700 dark:text-gray-300 max-w-[500px]">
             Just a front-end developer who designs minimalist interfaces and loves{" "}
             <span 

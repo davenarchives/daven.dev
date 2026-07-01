@@ -10,21 +10,21 @@ export function Projects() {
       desc: "watch animes directly from your terminal",
       cover: "/assets/projects/yorumicli-bg.png",
       icon: "/assets/projects/yorumicli-icon.png",
-      link: "#"
+      link: "https://yorumi-cli.vercel.app"
     },
     {
       title: "Yorumi",
-      desc: "anime and manga streaming webapp",
-      cover: "/assets/projects/yorumi-bg.png",
+      desc: "watch anime & read manga all in one place",
+      cover: "/assets/projects/yorumi-bg-2.png",
       icon: "/assets/projects/yorumi-app-icon.png",
-      link: "#"
+      link: "https://yorumi.vercel.app"
     },
     {
       title: "AniSauce",
       desc: "find anime source from a screenshot",
       cover: "/assets/projects/anisauce-bg.png",
       icon: "/assets/projects/anisauce-icon.png",
-      link: "#"
+      link: "https://anisauce.vercel.app"
     }
   ];
 
@@ -43,6 +43,8 @@ export function Projects() {
         {projects.map((project, i) => (
           <motion.a
             href={project.link}
+            target="_blank"
+            rel="noopener noreferrer"
             key={i}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}

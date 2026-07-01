@@ -86,7 +86,7 @@ export function Tools() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: index * 0.1 }}
-            className={`p-6 md:p-8 rounded-2xl border border-yellow-400 dark:border-cyan-400 bg-black/5 dark:bg-white/5 backdrop-blur-md flex flex-col transition-colors ${index % 2 !== 0 ? 'md:mt-6' : ''}`}
+            className={`p-6 md:p-8 rounded-2xl bg-black/5 dark:bg-white/5 backdrop-blur-md flex flex-col transition-colors ${index % 2 !== 0 ? 'md:mt-6' : ''}`}
           >
             <h3 className="text-[22px] font-bold mb-3 text-black dark:text-white">
               {cat.title}

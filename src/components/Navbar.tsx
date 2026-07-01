@@ -50,7 +50,7 @@ export function Navbar() {
   };
 
   return (
-    <nav className="absolute top-0 left-0 right-0 z-50 h-[80px] bg-[#fafafa] dark:bg-[#171717] transition-colors">
+    <nav className="absolute top-0 left-0 right-0 z-50 h-[80px] bg-transparent transition-colors">
       <div className="max-w-[1440px] mx-auto h-full flex items-center justify-between px-6 lg:px-12">
         <Link href="/" className="font-bold text-lg lg:text-xl tracking-tight flex items-baseline">
           <span className="text-yellow-400 text-sm lg:text-base mr-1.5">{">_"}</span>
@@ -66,9 +66,9 @@ export function Navbar() {
             aria-label="Toggle Theme"
           >
             {mounted && theme === "dark" ? (
-              <Moon className="w-5 h-5 text-cyan-400" />
+              <Moon className="w-5 h-5 text-white" />
             ) : mounted ? (
-              <Sun className="w-5 h-5 text-yellow-400" />
+              <Sun className="w-5 h-5 text-black" />
             ) : (
               <div className="w-5 h-5" />
             )}
@@ -78,7 +78,7 @@ export function Navbar() {
         {/* Mobile menu fallback */}
         <div className="lg:hidden flex items-center gap-4">
            <button onClick={toggleTheme} className="p-2">
-             {mounted && theme === "dark" ? <Moon className="w-5 h-5 text-cyan-400" /> : <Sun className="w-5 h-5 text-yellow-400" />}
+             {mounted && theme === "dark" ? <Moon className="w-5 h-5 text-white" /> : <Sun className="w-5 h-5 text-black" />}
            </button>
         </div>
       </div>
