@@ -50,7 +50,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body suppressHydrationWarning className={`${geistSans.variable} ${geistMono.variable} ${inter.className} ${lilitaOne.variable} ${palanquinDark.variable} ${roboto.variable} min-h-screen bg-background text-foreground antialiased selection:bg-[#F59E0B]/30 selection:text-[#F59E0B]`}>
-        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
+        <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
           <div className="relative flex min-h-screen flex-col">
             {children}
           </div>
