@@ -36,7 +36,7 @@ export function Projects() {
     {
       title: "AnonyWall",
       desc: "share your thoughts anonymously",
-      cover: "/assets/projects/anonywall-bg.png",
+      cover: "/assets/projects/anonywall-bg-v2.png",
       icon: "/assets/projects/anonywall-icon-colored.png",
       link: "https://anonywall-ph.vercel.app"
     },
