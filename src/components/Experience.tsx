@@ -14,11 +14,36 @@ const experiences = [
     title: "Academic",
     roles: [
       {
-        subtitle: "UI/UX & Frontend Lead for Anonywall",
+        subtitle: (
+          <>
+            UI/UX & Frontend Lead for{" "}
+            <a
+              href="https://anonywall-ph.vercel.app"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline decoration-dashed underline-offset-4 hover:text-[#91BEE6] dark:hover:text-[#aec5df] transition-colors duration-300"
+            >
+              Anonywall
+            </a>
+          </>
+        ),
         bullet: "Engineered a minimalist, secure interface using modern web frameworks to provide a safe space for student expression."
       },
       {
-        subtitle: "UI/UX & Frontend Lead for SerbiSure (CAPSTONE)",
+        subtitle: (
+          <>
+            UI/UX & Frontend Lead for{" "}
+            <a
+              href="https://www.figma.com/design/sEKkWrxy95dqjIMffPbYnq/SERBISURE-MOBILE?node-id=0-1&t=Ah4jNUSDAcPVA7kT-1"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline decoration-dashed underline-offset-4 hover:text-[#91BEE6] dark:hover:text-[#aec5df] transition-colors duration-300"
+            >
+              SerbiSure
+            </a>{" "}
+            (CAPSTONE)
+          </>
+        ),
         bullet: "Prototyped a high-fidelity frontend architecture in Figma to optimize user onboarding for the recruitment platform."
       }
     ],
@@ -46,7 +71,19 @@ const experiences = [
     title: "Programmer’s Varsity (ProgVar) Frontend Dev @ SITE",
     roles: [
       {
-        subtitle: "SITE Website Project Head",
+        subtitle: (
+          <>
+            <a
+              href="https://siteustp.vercel.app"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline decoration-dashed underline-offset-4 hover:text-[#C4B5FD] dark:hover:text-[#b5adc6] transition-colors duration-300"
+            >
+              SITE Website
+            </a>{" "}
+            Project Head
+          </>
+        ),
         bullet: "Designed and developed the official web platform using Astro and TinaCMS to deliver an easily maintainable, lightweight portal for the IT student body."
       },
       {
@@ -88,11 +125,35 @@ const experiences = [
     title: "Freelance (UI/UX & Frontend Design)",
     roles: [
       {
-        subtitle: "UI/UX Designer for Barangay Connect",
+        subtitle: (
+          <>
+            UI/UX Designer for{" "}
+            <a
+              href="https://www.figma.com/design/OBjPk2uhfaCAXh0T4X2bE5/Barangay-Connect?node-id=0-1&t=jB9cJKsWJtxRfdp6-1"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline decoration-dashed underline-offset-4 hover:text-[#A7F3D0] dark:hover:text-[#b0c8bd] transition-colors duration-300"
+            >
+              Barangay Connect
+            </a>
+          </>
+        ),
         bullet: "Designed a commissioned UI/UX prototype for Barangay Connect, a barangay management system in Figma."
       },
       {
-        subtitle: "Frontend UI Developer for eDiary",
+        subtitle: (
+          <>
+            Frontend UI Developer for{" "}
+            <a
+              href="https://www.figma.com/design/71PZkiXe8DhfrhFMd1XrAC/EDIARY?node-id=309-2&t=pnkbD9WrtLMEfFqc-1"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline decoration-dashed underline-offset-4 hover:text-[#A7F3D0] dark:hover:text-[#b0c8bd] transition-colors duration-300"
+            >
+              eDiary
+            </a>
+          </>
+        ),
         bullet: "Programmed a responsive mobile frontend using React Native and Expo to deliver an interactive personal logging app."
       }
     ],
@@ -236,6 +297,11 @@ export function Experience() {
                             if (offset.x < -50) setCurrentImageIndex((prev) => (prev + 1) % numItems);
                             if (offset.x > 50) setCurrentImageIndex((prev) => (prev - 1 + numItems) % numItems);
                           }}
+                          onClick={() => {
+                            if (isActive && (item as any).link) {
+                              window.open((item as any).link, '_blank');
+                            }
+                          }}
                           animate={{
                             zIndex: numItems - diff,
                             scale: 1 - diff * 0.05,
@@ -244,7 +310,7 @@ export function Experience() {
                             opacity: 1 - diff * 0.15,
                           }}
                           transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                          className={`absolute inset-0 rounded-xl overflow-hidden ${isActive ? 'cursor-grab active:cursor-grabbing' : 'pointer-events-none'}`}
+                          className={`absolute inset-0 rounded-xl overflow-hidden ${isActive ? ((item as any).link ? 'cursor-pointer active:cursor-grabbing' : 'cursor-grab active:cursor-grabbing') : 'pointer-events-none'}`}
                         >
                           {item.image ? (
                             <>
@@ -311,6 +377,12 @@ export function Experience() {
           <VerticalTimeline layout="1-column-left" lineColor={isDarkMode ? "#374151" : "#d1d5db"}>
             {experiences.map((exp, index) => {
               const isActive = index === activeSection;
+              const theme = [
+                { hex: "#91BEE6", darkHex: "#aec5df", textClass: "text-[#91BEE6] dark:text-[#aec5df]" },
+                { hex: "#C4B5FD", darkHex: "#b5adc6", textClass: "text-[#C4B5FD] dark:text-[#b5adc6]" },
+                { hex: "#A7F3D0", darkHex: "#b0c8bd", textClass: "text-[#A7F3D0] dark:text-[#b0c8bd]" }
+              ][index];
+              const activeColor = isDarkMode ? theme.darkHex : theme.hex;
 
               return (
                 <div key={index} data-index={index} className="experience-item">
@@ -323,8 +395,8 @@ export function Experience() {
                     }}
                     contentArrowStyle={{ display: 'none' }}
                     iconStyle={{ 
-                      background: isActive ? '#facc15' : '#d1d5db',
-                      boxShadow: isActive ? '0 0 0 4px rgba(250, 204, 21, 0.2)' : '0 0 0 4px rgba(209, 213, 219, 0.2)',
+                      background: isActive ? activeColor : '#d1d5db',
+                      boxShadow: isActive ? `0 0 0 4px ${activeColor}33` : '0 0 0 4px rgba(209, 213, 219, 0.2)',
                       width: '16px',
                       height: '16px',
                       left: '12px',
@@ -350,7 +422,7 @@ export function Experience() {
                         </span>
                       </div>
 
-                      <h3 className={`font-palanquin text-[24px] lg:text-[28px] font-bold mb-3 leading-tight transition-colors ${isActive ? (isDarkMode ? "text-yellow-400" : "text-cyan-400") : "text-gray-400 dark:text-gray-600"}`}>
+                      <h3 className={`font-palanquin text-[24px] lg:text-[28px] font-bold mb-3 leading-tight transition-colors ${isActive ? theme.textClass : "text-gray-400 dark:text-gray-600"}`}>
                         {exp.title}
                       </h3>
                       
@@ -379,7 +451,13 @@ export function Experience() {
                           {exp.card.items[currentImageIndex]?.desc}
                         </p>
                         {exp.card.items[currentImageIndex]?.image && (
-                          <div className="relative w-full h-[180px] rounded-xl overflow-hidden bg-black/5 dark:bg-black/10 border border-black/10 dark:border-white/10">
+                          <div 
+                            className={`relative w-full h-[180px] rounded-xl overflow-hidden bg-black/5 dark:bg-black/10 border border-black/10 dark:border-white/10 ${(exp.card.items[currentImageIndex] as any).link ? 'cursor-pointer' : ''}`}
+                            onClick={() => {
+                              const link = (exp.card.items[currentImageIndex] as any).link;
+                              if (link) window.open(link, '_blank');
+                            }}
+                          >
                              <div className="absolute inset-0 bg-[#FDE047] dark:bg-[#CA8A04] translate-x-2 translate-y-2 rounded-xl" />
                              <div className="absolute inset-0 rounded-xl overflow-hidden">
                               <Image 
