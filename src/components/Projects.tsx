@@ -25,6 +25,27 @@ export function Projects() {
       cover: "/assets/projects/anisauce-bg.png",
       icon: "/assets/projects/anisauce-icon.png",
       link: "https://anisauce.vercel.app"
+    },
+    {
+      title: "SITE Website",
+      desc: "the official website for SITE",
+      cover: "/assets/projects/sitewebsite-bg.png",
+      icon: "/assets/projects/sitewebsite-icon-colored.png",
+      link: "https://siteustp.vercel.app"
+    },
+    {
+      title: "AnonyWall",
+      desc: "share your thoughts anonymously",
+      cover: "/assets/projects/anonywall-bg.png",
+      icon: "/assets/projects/anonywall-icon-colored.png",
+      link: "https://anonywall-ph.vercel.app"
+    },
+    {
+      title: "HappyBird",
+      desc: "just a normal flappy bird clone web app",
+      cover: "/assets/projects/happybird-bg.png",
+      icon: "/assets/projects/happybird-icon.png",
+      link: "https://happybird.vercel.app"
     }
   ];
 
