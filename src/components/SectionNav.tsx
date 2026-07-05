@@ -94,7 +94,7 @@ export function SectionNav() {
   const activeIndex = sections.findIndex(s => s.id === activeSection);
 
   return (
-    <div className="fixed right-8 top-1/2 -translate-y-1/2 z-50 hidden xl:flex flex-col items-center gap-6">
+    <div suppressHydrationWarning className="fixed right-8 top-1/2 -translate-y-1/2 z-50 hidden xl:flex flex-col items-center gap-6">
       
       {/* Animated Top Number Track */}
       <div className="relative h-[20px] w-[20px] overflow-hidden">
