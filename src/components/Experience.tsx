@@ -280,7 +280,7 @@ export function Experience() {
                 </div>
 
                 {/* Carousel Area - Stacked Effect */}
-                <div className="relative w-full flex-1 px-2 flex items-center justify-center">
+                <div className="relative w-full flex-1 px-2 flex items-start pt-2 justify-center">
                   <div className="relative w-full aspect-video">
                     {activeData.card.items.map((item, i) => {
                       const numItems = activeData.card.items.length;
@@ -445,7 +445,7 @@ export function Experience() {
                         <motion.div 
                           initial={{ opacity: 0, height: 0 }}
                           animate={{ opacity: 1, height: "auto" }}
-                          className={`lg:hidden mt-8 w-full aspect-[4/5] sm:aspect-square rounded-3xl p-5 flex flex-col justify-between shadow-sm overflow-hidden ${exp.card.color}`}
+                          className={`lg:hidden mt-8 w-full aspect-square rounded-3xl p-5 flex flex-col justify-between shadow-sm overflow-hidden ${exp.card.color}`}
                         >
                           {exp.card.items.length > 0 ? (
                             <div className="relative w-full h-full flex flex-col justify-between pb-2">
@@ -463,7 +463,7 @@ export function Experience() {
                               </div>
 
                               {/* Carousel Area */}
-                              <div className="relative w-full flex-1 px-1 flex items-center justify-center min-h-[220px]">
+                              <div className="relative w-full flex-1 px-1 flex items-start pt-2 justify-center">
                                 <div className="relative w-full aspect-video">
                                   {exp.card.items.map((item, i) => {
                                     const numItems = exp.card.items.length;
