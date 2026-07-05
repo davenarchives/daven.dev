@@ -241,13 +241,13 @@ export function Experience() {
   };
 
   return (
-    <div className="max-w-[1300px] mx-auto w-full">
-      {/* Global Centered Header */}
+    <div className="max-w-[1300px] mx-auto w-full px-6 lg:px-0">
+      {/* Global Centered Header (Left on Mobile) */}
       <motion.h2 
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="font-palanquin text-[32px] md:text-[40px] font-bold mb-12 text-center leading-none text-black dark:text-white"
+        className="font-palanquin text-[32px] md:text-[40px] font-bold mb-8 lg:mb-12 text-left lg:text-center leading-none text-black dark:text-white"
       >
         Experience
       </motion.h2>
@@ -369,115 +369,180 @@ export function Experience() {
             )}
           </motion.div>
         </div>
-      </div>
-
-      {/* Right Column: Experience Timeline */}
-      <div className="w-full max-w-[680px] relative flex flex-col justify-start px-0">
-        <div className="relative">
-          <VerticalTimeline layout="1-column-left" lineColor={isDarkMode ? "#374151" : "#d1d5db"}>
-            {experiences.map((exp, index) => {
-              const isActive = index === activeSection;
-              const theme = [
-                { hex: "#91BEE6", darkHex: "#aec5df", textClass: "text-[#91BEE6] dark:text-[#aec5df]" },
-                { hex: "#C4B5FD", darkHex: "#b5adc6", textClass: "text-[#C4B5FD] dark:text-[#b5adc6]" },
-                { hex: "#A7F3D0", darkHex: "#b0c8bd", textClass: "text-[#A7F3D0] dark:text-[#b0c8bd]" }
-              ][index];
-              const activeColor = isDarkMode ? theme.darkHex : theme.hex;
-
-              return (
-                <div key={index} data-index={index} className="experience-item">
-                  <VerticalTimelineElement
-                    className={`transition-all duration-500 ${isActive ? "opacity-100" : "opacity-30 grayscale blur-[1px]"}`}
-                    contentStyle={{ 
-                      background: 'transparent', 
-                      boxShadow: 'none',
-                      padding: '0 0 2rem 1rem'
-                    }}
-                    contentArrowStyle={{ display: 'none' }}
-                    iconStyle={{ 
-                      background: isActive ? activeColor : '#d1d5db',
-                      boxShadow: isActive ? `0 0 0 4px ${activeColor}33` : '0 0 0 4px rgba(209, 213, 219, 0.2)',
-                      width: '16px',
-                      height: '16px',
-                      left: '12px',
-                      marginLeft: '0',
-                      marginTop: '16px'
-                    }}
-                    icon={<div />}
-                  >
-                    <div className="flex-1 relative">
-                      {/* Desktop Year */}
-                      <div className="hidden lg:block absolute right-[calc(100%+80px)] w-[120px] text-right top-[16px]">
-                        {exp.year.split("-").map((part, i) => (
-                          <span key={i} className={`block font-bold text-[12px] leading-tight transition-colors ${isActive ? "text-black dark:text-white" : "text-gray-500"}`}>
-                            {i > 0 ? `- ${part}` : part}
-                          </span>
-                        ))}
-                      </div>
-                      
-                      {/* Mobile Year */}
-                      <div className="lg:hidden mb-2">
-                        <span className={`font-bold text-[12px] ${isActive ? "text-black dark:text-white" : "text-gray-500"}`}>
-                          {exp.year.replace("-", " - ")}
-                        </span>
-                      </div>
-
-                      <h3 className={`font-palanquin text-[24px] lg:text-[28px] font-bold mb-3 leading-tight transition-colors ${isActive ? theme.textClass : "text-gray-400 dark:text-gray-600"}`}>
-                        {exp.title}
-                      </h3>
-                      
-                      <div className="space-y-6">
-                        {exp.roles.map((role, rIndex) => (
-                          <div key={rIndex}>
-                            <h4 className={`font-roboto text-[16px] lg:text-[18px] font-bold mb-2 italic ${isActive ? "text-black dark:text-white" : "text-gray-500 dark:text-gray-500"}`}>
-                              {role.subtitle}
-                            </h4>
-                            <p className={`font-roboto text-[14px] lg:text-[15px] font-medium leading-relaxed ${isActive ? "text-gray-700 dark:text-gray-300" : "text-gray-500 dark:text-gray-600"}`}>
-                              • {role.bullet}
-                            </p>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-
-                    {/* Mobile Card Fallback */}
-                    {isActive && (
-                      <motion.div 
-                        initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: "auto" }}
-                        className={`lg:hidden mt-8 w-full rounded-2xl p-5 shadow-md ${exp.card.color}`}
-                      >
-                        <p className="font-palanquin font-bold text-lg mb-4 text-black dark:text-white">
-                          {exp.card.items[currentImageIndex]?.desc}
-                        </p>
-                        {exp.card.items[currentImageIndex]?.image && (
-                          <div 
-                            className={`relative w-full h-[180px] rounded-xl overflow-hidden bg-black/5 dark:bg-black/10 border border-black/10 dark:border-white/10 ${(exp.card.items[currentImageIndex] as any).link ? 'cursor-pointer' : ''}`}
-                            onClick={() => {
-                              const link = (exp.card.items[currentImageIndex] as any).link;
-                              if (link) window.open(link, '_blank');
-                            }}
-                          >
-                             <div className="absolute inset-0 bg-[#FDE047] dark:bg-[#CA8A04] translate-x-2 translate-y-2 rounded-xl" />
-                             <div className="absolute inset-0 rounded-xl overflow-hidden">
-                              <Image 
-                                src={exp.card.items[currentImageIndex].image} 
-                                alt="Project Highlight"
-                                fill
-                                className="object-contain object-center scale-[0.98]"
-                              />
-                             </div>
-                          </div>
-                        )}
-                      </motion.div>
-                    )}
-                  </VerticalTimelineElement>
-                </div>
-              );
-            })}
-          </VerticalTimeline>
         </div>
-      </div>
+
+        {/* Right Column: Experience Timeline */}
+        <div className="w-full max-w-[680px] relative flex flex-col justify-start px-0 text-left">
+          <div className="relative max-lg:[&_.vertical-timeline::before]:hidden max-lg:[&_.vertical-timeline-element-icon]:hidden max-lg:[&_.vertical-timeline-element-content]:!ml-0 max-lg:[&_.vertical-timeline-element-content]:!px-0 max-lg:[&_.vertical-timeline]:!px-0">
+            <VerticalTimeline layout="1-column-left" lineColor={isDarkMode ? "#374151" : "#d1d5db"}>
+              {experiences.map((exp, index) => {
+                const isActive = index === activeSection;
+                const theme = [
+                  { hex: "#91BEE6", darkHex: "#aec5df", textClass: "text-[#91BEE6] dark:text-[#aec5df]" },
+                  { hex: "#C4B5FD", darkHex: "#b5adc6", textClass: "text-[#C4B5FD] dark:text-[#b5adc6]" },
+                  { hex: "#A7F3D0", darkHex: "#b0c8bd", textClass: "text-[#A7F3D0] dark:text-[#b0c8bd]" }
+                ][index];
+                const activeColor = isDarkMode ? theme.darkHex : theme.hex;
+
+                return (
+                  <div key={index} data-index={index} className="experience-item">
+                    <VerticalTimelineElement
+                      className={`transition-all duration-500 ${isActive ? "opacity-100" : "opacity-30 grayscale blur-[1px]"}`}
+                      contentStyle={{ 
+                        background: 'transparent', 
+                        boxShadow: 'none',
+                        padding: '0 0 2rem 0'
+                      }}
+                      contentArrowStyle={{ display: 'none' }}
+                      iconStyle={{ 
+                        background: isActive ? activeColor : '#d1d5db',
+                        boxShadow: isActive ? `0 0 0 4px ${activeColor}33` : '0 0 0 4px rgba(209, 213, 219, 0.2)',
+                        width: '16px',
+                        height: '16px',
+                        left: '12px',
+                        marginLeft: '0',
+                        marginTop: '16px'
+                      }}
+                      icon={<div />}
+                    >
+                      <div className="flex-1 relative">
+                        {/* Desktop Year */}
+                        <div className="hidden lg:block absolute right-[calc(100%+80px)] w-[120px] text-right top-[16px]">
+                          {exp.year.split("-").map((part, i) => (
+                            <span key={i} className={`block font-bold text-[12px] leading-tight transition-colors ${isActive ? "text-black dark:text-white" : "text-gray-500"}`}>
+                              {i > 0 ? `- ${part}` : part}
+                            </span>
+                          ))}
+                        </div>
+                        
+                        {/* Mobile Year */}
+                        <div className="lg:hidden mb-2">
+                          <span className={`font-bold text-[12px] ${isActive ? "text-black dark:text-white" : "text-gray-500"}`}>
+                            {exp.year.replace("-", " - ")}
+                          </span>
+                        </div>
+
+                        <h3 className={`font-palanquin text-[24px] lg:text-[28px] font-bold mb-3 leading-tight transition-colors ${isActive ? theme.textClass : "text-gray-400 dark:text-gray-600"}`}>
+                          {exp.title}
+                        </h3>
+                        
+                        <div className="space-y-6">
+                          {exp.roles.map((role, rIndex) => (
+                            <div key={rIndex}>
+                              <h4 className={`font-roboto text-[16px] lg:text-[18px] font-bold mb-2 italic ${isActive ? "text-black dark:text-white" : "text-gray-500 dark:text-gray-500"}`}>
+                                {role.subtitle}
+                              </h4>
+                              <p className={`font-roboto text-[14px] lg:text-[15px] font-medium leading-relaxed ${isActive ? "text-gray-700 dark:text-gray-300" : "text-gray-500 dark:text-gray-600"}`}>
+                                • {role.bullet}
+                              </p>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+
+                      {/* Mobile Card (Matching Web Design) */}
+                      {isActive && (
+                        <motion.div 
+                          initial={{ opacity: 0, height: 0 }}
+                          animate={{ opacity: 1, height: "auto" }}
+                          className={`lg:hidden mt-8 w-full aspect-[4/5] sm:aspect-square rounded-3xl p-5 flex flex-col justify-between shadow-sm overflow-hidden ${exp.card.color}`}
+                        >
+                          {exp.card.items.length > 0 ? (
+                            <div className="relative w-full h-full flex flex-col justify-between pb-2">
+                              {/* Title Area */}
+                              <div className="mb-4 flex justify-start px-1 text-left">
+                                <motion.h4 
+                                  key={currentImageIndex}
+                                  initial={{ opacity: 0, y: 10 }}
+                                  animate={{ opacity: 1, y: 0 }}
+                                  transition={{ duration: 0.3 }}
+                                  className="font-palanquin font-bold text-[16px] sm:text-[24px] leading-[1.2] text-black dark:text-white line-clamp-2"
+                                >
+                                  {exp.card.items[currentImageIndex]?.desc}
+                                </motion.h4>
+                              </div>
+
+                              {/* Carousel Area */}
+                              <div className="relative w-full flex-1 px-1 flex items-center justify-center min-h-[220px]">
+                                <div className="relative w-full aspect-video">
+                                  {exp.card.items.map((item, i) => {
+                                    const numItems = exp.card.items.length;
+                                    const diff = (i - currentImageIndex + numItems) % numItems;
+                                    const isActiveCard = diff === 0;
+
+                                    return (
+                                      <motion.div
+                                        key={i}
+                                        drag={isActiveCard ? "x" : false}
+                                        dragConstraints={{ left: 0, right: 0 }}
+                                        onDragEnd={(e, { offset }) => {
+                                          if (offset.x < -40) setCurrentImageIndex((prev) => (prev + 1) % numItems);
+                                          if (offset.x > 40) setCurrentImageIndex((prev) => (prev - 1 + numItems) % numItems);
+                                        }}
+                                        onClick={() => {
+                                          if (isActiveCard && (item as any).link) {
+                                            window.open((item as any).link, '_blank');
+                                          }
+                                        }}
+                                        animate={{
+                                          zIndex: numItems - diff,
+                                          scale: 1 - diff * 0.05,
+                                          x: 0,
+                                          y: diff * 10,
+                                          opacity: 1 - diff * 0.15,
+                                        }}
+                                        transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                                        className={`absolute inset-0 rounded-xl overflow-hidden ${isActiveCard ? ((item as any).link ? 'cursor-pointer active:cursor-grabbing' : 'cursor-grab active:cursor-grabbing') : 'pointer-events-none'}`}
+                                      >
+                                        {item.image ? (
+                                          <Image 
+                                            src={item.image} 
+                                            alt="Project Highlight"
+                                            fill
+                                            className="object-cover object-top"
+                                            draggable={false}
+                                          />
+                                        ) : (
+                                          <div className="w-full h-full flex items-center justify-center">
+                                            <span className="opacity-50 font-bold">Image soon</span>
+                                          </div>
+                                        )}
+                                      </motion.div>
+                                    );
+                                  })}
+                                </div>
+                              </div>
+
+                              {/* Dots indicator */}
+                              <div className="mt-6 flex justify-center gap-2">
+                                {exp.card.items.map((_, i) => (
+                                  <button 
+                                    key={i} 
+                                    onClick={() => setCurrentImageIndex(i)}
+                                    className={`h-2 rounded-full transition-all duration-300 ${i === currentImageIndex ? "w-6 bg-black dark:bg-white" : "w-2 bg-black/30 dark:bg-white/30 hover:bg-black/50"}`}
+                                  />
+                                ))}
+                              </div>
+                            </div>
+                          ) : (
+                            <div className="w-full h-full flex flex-col">
+                              <h4 className="font-palanquin font-bold text-[20px] sm:text-[24px] leading-[1.1] text-black dark:text-white mb-6">
+                                {exp.card.items[0]?.desc}
+                              </h4>
+                              <div className="w-full flex-1 rounded-xl bg-black/10 dark:bg-black/20 flex items-center justify-center">
+                                <span className="text-sm font-bold opacity-50 text-black dark:text-white">More previews soon</span>
+                              </div>
+                            </div>
+                          )}
+                        </motion.div>
+                      )}
+                    </VerticalTimelineElement>
+                  </div>
+                );
+              })}
+            </VerticalTimeline>
+          </div>
+        </div>
       </div>
     </div>
   );

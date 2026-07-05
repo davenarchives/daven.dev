@@ -20,11 +20,11 @@ export default function Home() {
             className="min-h-[calc(100svh-80px)] py-16 lg:py-0 flex items-center justify-center"
           >
             <SectionWrapper>
-              <div className="max-w-[1300px] mx-auto w-full grid lg:grid-cols-[480px_minmax(0,680px)] justify-center gap-12 lg:gap-[70px]">
-                <div className="hidden lg:flex justify-end relative">
+              <div className="max-w-[1300px] mx-auto w-full flex flex-col lg:grid lg:grid-cols-[480px_minmax(0,680px)] items-center lg:items-start justify-center gap-10 lg:gap-[70px]">
+                <div className="flex justify-center lg:justify-end relative w-full">
                   <ProfileSidebar />
                 </div>
-                <div className="w-full max-w-[680px]">
+                <div className="w-full max-w-[680px] flex justify-center lg:justify-start">
                   <Intro />
                 </div>
               </div>

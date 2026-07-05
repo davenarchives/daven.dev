@@ -15,7 +15,7 @@ export function ProfileSidebar() {
   const isDarkMode = mounted && theme === "dark";
 
   return (
-    <div className="sticky top-[calc(50svh-160px)] z-10 w-[320px] h-[320px] hidden lg:block">
+    <div className="lg:sticky lg:top-[calc(50svh-160px)] z-10 w-[240px] h-[240px] lg:w-[320px] lg:h-[320px]">
       <motion.div
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}

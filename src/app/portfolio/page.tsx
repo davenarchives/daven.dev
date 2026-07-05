@@ -18,7 +18,7 @@ export default function Home() {
   return (
     <>
       <Navigation />
-      <main className="min-h-screen bg-background text-foreground pt-20 px-6 max-w-[1400px] mx-auto flex flex-col lg:flex-row gap-12 pb-20">
+      <main className="min-h-screen bg-background text-foreground pt-10 px-6 max-w-[1400px] mx-auto flex flex-col lg:flex-row gap-12 pb-20">
         
         {/* LEFT COLUMN - Sticky Profile Sidebar */}
         <div className="lg:sticky lg:top-24 lg:w-[400px] lg:h-[calc(100vh-8rem)] overflow-y-auto hidden-scrollbar flex flex-col gap-8">
@@ -94,7 +94,7 @@ export default function Home() {
           
           {/* Experience Section */}
           <section id="experience" className="flex flex-col gap-6">
-            <h2 className="text-3xl font-bold font-sans sticky top-20 bg-background/90 backdrop-blur-md py-4 z-10">Experience & Education</h2>
+            <h2 className="text-3xl font-bold font-sans py-4">Experience & Education</h2>
             <div className="flex flex-col gap-8">
               
               <div className="relative pl-8 border-l border-border group">
@@ -122,7 +122,7 @@ export default function Home() {
 
           {/* Projects Section */}
           <section id="projects" className="flex flex-col gap-6">
-            <h2 className="text-3xl font-bold font-sans sticky top-20 bg-background/90 backdrop-blur-md py-4 z-10">Projects</h2>
+            <h2 className="text-3xl font-bold font-sans py-4">Projects</h2>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {[

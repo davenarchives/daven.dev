@@ -79,22 +79,22 @@ export function Intro() {
         initial={{ opacity: 0, x: 50 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.5, delay: 0.2 }}
-        className="w-full flex flex-col"
+        className="w-full flex flex-col items-center lg:items-start text-center lg:text-left"
       >
-        <div className="mb-[32px]">
-          <p className="font-palanquin text-[20px] font-semibold text-gray-500 dark:text-slate-300 leading-none mb-2">
+        <div className="mb-[24px] lg:mb-[32px] flex flex-col items-center lg:items-start">
+          <p className="font-palanquin text-[15px] sm:text-[20px] font-semibold text-gray-500 dark:text-slate-300 leading-none mb-2">
             I'm Daven Austhine Sumagang,
           </p>
-          <h1 className="font-roboto italic text-[40px] lg:text-[48px] font-bold text-black dark:text-white leading-none mb-2">
+          <h1 className="font-roboto italic text-[26px] sm:text-[36px] lg:text-[48px] font-bold text-black dark:text-white leading-[1.1] mb-2 text-center lg:text-left">
             UI/UX & Front-end Developer
           </h1>
-          <div className="flex items-center gap-1.5 mb-6 text-gray-500 dark:text-gray-400">
+          <div className="flex items-center justify-center lg:justify-start gap-1.5 mb-4 lg:mb-6 text-gray-500 dark:text-gray-400">
             <MapPin className="w-4 h-4" />
             <p className="font-mono text-[13px] uppercase tracking-widest mt-0.5">
               Cagayan de Oro, Philippines
             </p>
           </div>
-          <p className="text-base lg:text-[18px] text-gray-700 dark:text-gray-300 max-w-[500px]">
+          <p className="text-base lg:text-[18px] text-gray-700 dark:text-gray-300 max-w-[500px] mx-auto lg:mx-0">
             Just a front-end developer who designs minimalist interfaces and loves{" "}
             <span 
               className="group relative inline-block cursor-crosshair font-bold transition-colors text-violet-500 dark:text-[#c4b5fd]"
@@ -110,13 +110,13 @@ export function Intro() {
                   translateX: "-50%",
                   translateY: "calc(-100% + 15px)"
                 }}
-                className="pointer-events-none absolute left-0 top-0 z-50 w-[120px] opacity-0 transition-opacity duration-200 group-hover:opacity-100"
+                className="pointer-events-none absolute left-1/2 lg:left-0 top-0 z-50 w-[120px] opacity-0 transition-opacity duration-200 group-hover:opacity-100"
               />
             </span>
           </p>
         </div>
 
-        <div className="flex gap-[16px] items-center mb-[40px]">
+        <div className="flex gap-[16px] justify-center lg:justify-start items-center mb-[24px] lg:mb-[40px]">
           <SocialLink href="https://github.com/davenarchives" label="GitHub" colorClass="text-zinc-900 dark:text-zinc-100">
             <Github01Icon className="w-[32px] h-[32px]" />
           </SocialLink>
@@ -134,16 +134,16 @@ export function Intro() {
           </SocialLink>
         </div>
 
-        <div className="flex flex-col sm:flex-row gap-[24px] font-bold">
+        <div className="flex flex-row justify-center lg:justify-start gap-[12px] sm:gap-[24px] font-bold w-full sm:w-auto">
           <button 
              onClick={scrollToExperience}
-             className="w-full sm:w-[144px] h-[50px] bg-yellow-400 text-black border-2 border-black dark:border-[#d4d4d4] shadow-[4px_4px_0_0_rgba(0,0,0,1)] dark:shadow-[4px_4px_0_0_#d4d4d4] hover:translate-y-[2px] hover:translate-x-[2px] hover:shadow-[2px_2px_0_0_rgba(0,0,0,1)] dark:hover:shadow-[2px_2px_0_0_#d4d4d4] transition-all flex items-center justify-center text-[16px]"
+             className="flex-1 sm:flex-none sm:w-[144px] h-[50px] bg-yellow-400 text-black border-2 border-black dark:border-[#d4d4d4] shadow-[4px_4px_0_0_rgba(0,0,0,1)] dark:shadow-[4px_4px_0_0_#d4d4d4] hover:translate-y-[2px] hover:translate-x-[2px] hover:shadow-[2px_2px_0_0_rgba(0,0,0,1)] dark:hover:shadow-[2px_2px_0_0_#d4d4d4] transition-all flex items-center justify-center text-[14px] sm:text-[16px]"
           >
             Experience
           </button>
           <button 
              onClick={scrollToProjects}
-             className="w-full sm:w-[144px] h-[50px] border-2 border-black dark:border-[#d4d4d4] bg-transparent text-black shadow-[4px_4px_0_0_rgba(0,0,0,1)] dark:shadow-[4px_4px_0_0_#d4d4d4] transition-all flex items-center justify-center text-[16px] hover:translate-y-[2px] hover:translate-x-[2px] hover:shadow-[2px_2px_0_0_rgba(0,0,0,1)] dark:hover:shadow-[2px_2px_0_0_#d4d4d4] dark:text-white"
+             className="flex-1 sm:flex-none sm:w-[144px] h-[50px] border-2 border-black dark:border-[#d4d4d4] bg-transparent text-black shadow-[4px_4px_0_0_rgba(0,0,0,1)] dark:shadow-[4px_4px_0_0_#d4d4d4] transition-all flex items-center justify-center text-[14px] sm:text-[16px] hover:translate-y-[2px] hover:translate-x-[2px] hover:shadow-[2px_2px_0_0_rgba(0,0,0,1)] dark:hover:shadow-[2px_2px_0_0_#d4d4d4] dark:text-white"
           >
             Projects
           </button>

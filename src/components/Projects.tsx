@@ -60,7 +60,7 @@ export function Projects() {
         Projects
       </motion.h2>
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-[1200px] mx-auto">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-[1200px] mx-auto px-4 lg:px-0">
         {projects.map((project, i) => (
           <motion.a
             href={project.link}
@@ -71,7 +71,7 @@ export function Projects() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: i * 0.1 }}
-            className="group flex flex-col bg-white dark:bg-[#111111] rounded-2xl overflow-hidden transition-colors cursor-pointer shadow-sm dark:shadow-none hover:bg-gray-50 dark:hover:bg-[#161616]"
+            className="group flex flex-col w-full bg-white dark:bg-[#111111] rounded-2xl overflow-hidden transition-colors cursor-pointer shadow-sm dark:shadow-none border border-black/5 dark:border-white/5 hover:bg-gray-50 dark:hover:bg-[#161616]"
           >
             {/* Cover Image Area */}
             <div className="w-full aspect-[1920/1024] relative overflow-hidden">
@@ -84,9 +84,9 @@ export function Projects() {
             </div>
 
             {/* Bottom Content Area */}
-            <div className="flex items-center gap-4 p-4 bg-transparent">
+            <div className="flex items-center gap-4 p-5 bg-transparent">
               {/* Icon in Circle Frame */}
-              <div className="relative w-11 h-11 flex-shrink-0 rounded-full overflow-hidden bg-gray-50 dark:bg-black">
+              <div className="relative w-12 h-12 flex-shrink-0 rounded-full overflow-hidden bg-gray-50 dark:bg-black ring-1 ring-black/5 dark:ring-white/10">
                 <Image 
                   src={project.icon} 
                   alt={`${project.title} icon`} 
@@ -96,7 +96,7 @@ export function Projects() {
               </div>
 
               <div className="flex flex-col">
-                <h3 className="text-black dark:text-white font-bold text-[17px] mb-0.5">{project.title}</h3>
+                <h3 className="text-black dark:text-white font-bold text-[18px] mb-1">{project.title}</h3>
                 <p className="text-gray-500 dark:text-gray-400 text-[14px] leading-snug">{project.desc}</p>
               </div>
             </div>

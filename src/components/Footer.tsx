@@ -40,7 +40,7 @@ export function Footer() {
         <FooterSocialLink 
           href="https://www.linkedin.com/in/daven-austhine-sumagang-368817339/" 
           label="LinkedIn"
-          colorClass="text-[#93c5fd] hover:text-[#bae6fd]"
+          colorClass="text-black dark:text-white hover:opacity-70 transition-opacity"
         >
           <Linkedin02Icon className={iconClass} />
         </FooterSocialLink>
@@ -56,7 +56,7 @@ export function Footer() {
         <FooterSocialLink 
           href="mailto:sumagang.austhine@gmail.com"
           label="Email"
-          colorClass="text-[#fb923c] hover:text-[#fdba74]"
+          colorClass="text-black dark:text-white hover:opacity-70 transition-opacity"
         >
           <MailAtSign01Icon className={iconClass} />
         </FooterSocialLink>
@@ -64,7 +64,7 @@ export function Footer() {
         <FooterSocialLink 
           href="#"
           label="Calendar"
-          colorClass="text-[#c084fc] hover:text-[#d8b4fe]"
+          colorClass="text-black dark:text-white hover:opacity-70 transition-opacity"
         >
           <CalendarClock className={iconClass} />
         </FooterSocialLink>
@@ -72,17 +72,14 @@ export function Footer() {
         <FooterSocialLink 
           href="/assets/docs/resume.pdf" 
           label="Resume"
-          colorClass="text-[#f472b6] hover:text-[#fbcfe8]"
+          colorClass="text-black dark:text-white hover:opacity-70 transition-opacity"
         >
           <Csv02Icon className={iconClass} />
         </FooterSocialLink>
       </div>
       
-      <p className="font-medium text-sm tracking-wide mt-2">
-        <span className="text-violet-500 dark:text-[#c4b5fd]">vibe coding </span>
-        <span className="text-gray-500 dark:text-gray-400">with </span>
-        <span className="text-black dark:text-white font-bold">daven</span>
-        <span className="text-[#facc15] font-bold">.dev</span>
+      <p className="font-medium text-[15px] tracking-wide mt-2 text-black dark:text-white">
+        vibe coding with daven.dev
       </p>
     </footer>
   );
